@@ -23,7 +23,7 @@ if [ "$process" ]; then
 	fi
 else
 	echo "Do you want to start any VM?" 
-	read -p "Type 'start' to start the VM or 'no action': " choice
+	read -p "Type 'start' to start the VM or 'no action' for no action: " choice
 	echo
 	if [ "$choice" = 'start' ]; then
 		read -p "Enter name of the VM you want to start: " vm_start
@@ -47,6 +47,11 @@ else
 		fi
 	elif [ "$choice" = 'no action' ]; then
 		echo "This script is for starting/stoping VM from CLI."
+		echo
+		echo "Run the sctipt as given below"
+		echo 
+		echo ". ~/start_stop_login_vm.sh"
+		echo
 	else
 		echo
 		echo "Wrong input!!"
