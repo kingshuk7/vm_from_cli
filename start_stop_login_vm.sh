@@ -30,7 +30,7 @@ else
 		/usr/bin/virsh start "$vm_start"
 		echo
 		echo "VM is getting ready for login..."
-		sleep 5
+		sleep 10
 		echo
 		virsh net-dhcp-leases default
 		echo
