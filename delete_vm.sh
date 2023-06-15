@@ -29,7 +29,8 @@ if [ "$process" ]; then
         fi
 else
 	echo
-	read -p "Do you want to delete a VM?" 
+	echo "Do you want to delete a VM?" 
+	echo
 	read -p "Type 'yes' to delete, else the script will be skipped from running: " user_choice2
 	if [ "$user_choice2" = 'yes' ]; then
 		read -p "Enter the name of the VM you want to delete: " vm_del_only
