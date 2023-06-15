@@ -36,6 +36,7 @@ else
 		read -p "Enter the name of the VM you want to delete: " vm_del_only
 		/usr/bin/virsh undefine "$vm_del_only" --remove-all-storage
 	else
+		echo
 		echo "No action taken!!"
 	fi
 
