@@ -1,4 +1,5 @@
 #!/bin/sh
+
 echo "Warning!!! This script deletes an existing VM"
 echo
 echo "Current VM Status:"
