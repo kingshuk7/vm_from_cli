@@ -1,4 +1,5 @@
 #!/bin/sh
+
 echo
 echo "Creating virtual machine needs libvirt-*,bridge-utlis, virtins and virtmanager to be installed on the system."
 echo

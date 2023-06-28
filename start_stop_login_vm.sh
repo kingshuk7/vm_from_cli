@@ -1,4 +1,5 @@
 #!/bin/sh
+
 echo "Current VM status:"
 echo
 /usr/bin/virsh list --all
