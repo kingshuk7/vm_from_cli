@@ -22,13 +22,13 @@ if [ "$choice" = 'yes' ]; then
 		/usr/bin/wget "$link" -P ~/kvm/iso
 	fi
 	echo
-	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', etc.): " os
+	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', freebsd13.3 etc.): " os
 	echo
 	read -p "Enter RAM size (1024 or 2048, 2048 is suggested): " ram
 	echo
 	read -p "Enter the full path to the ISO file with .iso extension: " iso
 	echo
-	virt-install --name vm-01 \
+	virt-install --name "$os"-vm \
 		--os-variant "$os" \
 		--ram "$ram" \
 		--disk ~/kvm/disk/server-01.img,device=disk,bus=virtio,size=10,format=qcow2 \
@@ -38,5 +38,5 @@ if [ "$choice" = 'yes' ]; then
 		--cdrom "$iso" \
 		--boot cdrom,hd
 else
-	echo "Script terminatied!!"
+	echo "Script terminated!!"
 fi
