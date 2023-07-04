@@ -23,7 +23,10 @@ if [ "$choice" = 'yes' ]; then
 		/usr/bin/wget "$link" -P ~/kvm/iso
 	fi
 	echo
-	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', freebsd13.3 etc.): " os
+	virt-install --osinfo list > ~/kvm/os_variant.txt
+	echo "Check the ~/kvm/os_variant.txt file for list of supported os varints"
+	echo
+	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', freebsd13.0 etc.): " os
 	echo
 	read -p "Enter RAM size (1024 or 2048, 2048 is suggested): " ram
 	echo
