@@ -4,9 +4,9 @@ echo "Current VM status:"
 echo
 /usr/bin/virsh list --all
 
-process=$(virsh list --all | grep -v "Id" | grep -v "-" | awk '{print $3}')
+process=$(virsh list --all | grep -v "Id" | grep v "running" | awk '{print $3}')
 
-if [ "$process" ]; then
+if [ "$process" = 'running' ]; then
 	virsh net-dhcp-leases default
 	echo
 	echo "Do you want to log in to a running VM or shutdown a running VM?"
