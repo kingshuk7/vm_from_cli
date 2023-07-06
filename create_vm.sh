@@ -40,7 +40,8 @@ if [ "$choice" = 'yes' ]; then
 		--noautoconsole \
 		--hvm \
 		--cdrom "$iso" \
-		--boot cdrom,hd
+		--boot cdrom,hd \
+		--network default
 else
 	echo "Script terminated!!"
 fi

@@ -4,7 +4,7 @@ echo "Current VM status:"
 echo
 /usr/bin/virsh list --all
 
-process=$(virsh list --all | grep -v "Id" | grep "running" | awk '{print $3}')
+process=$(virsh list --all | grep -v "Id" | grep "running" | awk '{print $3}' | tail -1 | head -1)
 
 if [ "$process" = 'running' ]; then
 	virsh net-dhcp-leases default
