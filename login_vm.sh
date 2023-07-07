@@ -16,7 +16,9 @@ if [ "$process" = 'running' ]; then
 		read -p "Enter the IP: " ip
 		/usr/bin/ssh "$usr"@"$ip"
 	elif [ "$login_choice" = 'no' ]; then
-		echo "This script is for starting/stoping VM from CLI."
+		echo "VM is running and ready to login"
+		echo
+		echo "This script is for logging in to a running VM from CLI."
 		echo
 		echo "Run the sctipt as given below"
 		echo 
