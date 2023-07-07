@@ -39,6 +39,7 @@ if [ "$choice" = 'yes' ]; then
 		--graphics vnc,listen=0.0.0.0 \
 		--noautoconsole \
 		--hvm \
+		--vcpu=2 \
 		--cdrom "$iso" \
 		--boot cdrom,hd \
 		--network default
