@@ -38,7 +38,4 @@ else
 	echo 
 	echo ". ~/start_stop_vm.sh"
 	echo
-else
-	echo
-	echo "Wrong input!!"
 fi
