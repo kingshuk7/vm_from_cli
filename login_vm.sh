@@ -6,7 +6,10 @@ echo
 process=$(virsh list --all | grep -v "Id" | grep "running" |awk '{print $3}' | head -1 | tail -1)
 
 if [ "$process" = 'running' ]; then
-	virsh net-dhcp-leases default
+	for network in $(virsh net-list --name); do
+		echo "DHCP leases for network: $network"
+		virsh net-dhcp-leases $network
+	done
 	echo
 	echo "Do you want to log in to a running VM?"
        	read -p "Type 'yes' to log in, 'no' to skip logging: " login_choice
