@@ -1,5 +1,4 @@
 #!/bin/sh
-
 echo
 echo "Creating virtual machine needs libvirt-*,bridge-utlis, virtins and virtmanager to be installed on the system."
 echo
@@ -23,26 +22,31 @@ if [ "$choice" = 'yes' ]; then
 		/usr/bin/wget "$link" -P ~/kvm/iso
 	fi
 	echo
-	virt-install --osinfo list > ~/kvm/os_variant.txt
-	echo "Check the ~/kvm/os_variant.txt file for list of supported os varints"
+	read -p "Enter name of the VM: " name
 	echo
-	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', freebsd13.0 etc.): " os
+	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', etc.): " os
 	echo
 	read -p "Enter RAM size (1024 or 2048, 2048 is suggested): " ram
 	echo
 	read -p "Enter the full path to the ISO file with .iso extension: " iso
 	echo
-	virt-install --name "$os"-vm \
+	read -p "Enter server image name: " img
+	echo
+	echo "Available networks"
+       	virsh net-list --all
+	read -p "Enter network name: " network
+	echo
+	virt-install --name "$name" \
 		--os-variant "$os" \
 		--ram "$ram" \
-		--disk ~/kvm/disk/server-01.img,device=disk,bus=virtio,size=10,format=qcow2 \
+		--disk ~/kvm/disk/"$img"-01.img,device=disk,bus=virtio,size=10,format=qcow2 \
 		--graphics vnc,listen=0.0.0.0 \
 		--noautoconsole \
 		--hvm \
 		--vcpu=2 \
 		--cdrom "$iso" \
 		--boot cdrom,hd \
-		--network default
+		--network network="$network"
 else
-	echo "Script terminated!!"
+	echo "Script terminatied!!"
 fi
