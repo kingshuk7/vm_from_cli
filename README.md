@@ -5,7 +5,7 @@ These scripts create and start VM. The `create_vm.sh` script asks for user input
 Clone the repository and use the `create_vm.sh` to create the VM and `start_stop_vm.sh` to start or stop a VM and `login_vm.sh` login to a running VM.
 ```bash
 cd ~/
-git clone https://github.com/kinghub007/vm_from_cli.git
+git clone https://github.com/kingshuk7/vm_from_cli.git
 cd vm_from_cli
 sh create_vm.sh
 sh start_stop_vm.sh
