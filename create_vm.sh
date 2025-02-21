@@ -24,6 +24,9 @@ if [ "$choice" = 'yes' ]; then
 	echo
 	read -p "Enter name of the VM: " name
 	echo
+	virt-install --osinfo list > ~/kvm/os_variant.txt
+	echo "Check ~/kvm/os_variant.txt file for the correct OS variant"
+	echo
 	read -p "Enter OS Variant (i.e. 'ubuntu20.04', 'ubuntu22.04', etc.): " os
 	echo
 	read -p "Enter RAM size (1024 or 2048, 2048 is suggested): " ram
